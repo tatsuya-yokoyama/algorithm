@@ -9,6 +9,7 @@ int main() {
   cin >> N;
   for (int i = 0; i < N; i++) {
     cin >> x[i] >> y[i];
+    cout << i << endl;
   }
   float d_max = 0.0;
   for (int i = 0; i < N; i++) {
