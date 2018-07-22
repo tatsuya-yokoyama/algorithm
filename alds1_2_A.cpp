@@ -50,7 +50,7 @@ int my_bubble_sort(int a[], int n) {
       }
     }
     j++;
-    show_array();
+    //show_array();
   }
   return sw;
 }
@@ -60,9 +60,9 @@ int main() {
   for (int i = 0; i < n; i++) {
     cin >> a[i];
   }
-  my_bubble_sort(a, n);
-  cout << "----" << endl;
+  int sw = my_bubble_sort(a, n);
   show_array();
+  cout << sw << endl;
   return 0;
   cout << "-------" << endl;
 
