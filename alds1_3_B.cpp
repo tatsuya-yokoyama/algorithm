@@ -1,33 +1,36 @@
 #include <iostream>
-#include <queue>
-
+#include<queue>
+#define LEN 100010
 using namespace std;
 
+struct P {
+  string name;
+  int t;
+};
+
+int n, q;
+queue <P> Q;
+
 int main() {
-  string name[100010];
-  int t[100010];
-  int n, q;
   cin >> n >> q;
   for (int i = 0; i < n; i++) {
-    cin >> name[i] >> t[i];
-    enqueue(i);
+    P p;
+    cin >> p.name >> p.t;
+    Q.push(p);
   }
-  int total_time = 0;
-  int finished_process_count = 0;
-  while(finished_process_count <= n) {
-    int head_process = dequeue();
-    int rest = q;
-    if (t[head_process] <= rest) {
-      rest -= t[head_process];
-      total_time += t[head_process];
-      t[head_process] = 0;
-      finished_process_count++;
-      cout << "[finished]" << name[head_process] << " rest:" << t[head_process] << " total_time:" << total_time << endl;
+  int elaps = 0;
+  int rest = q;
+  while(!Q.empty()) {
+    P p = Q.front(); Q.pop();
+    if (p.t > rest) {
+      // プロセスが終了しない時
+      elaps += rest;
+      p.t -= rest;
+      Q.push(p);
     } else {
-      total_time += q;
-      t[head_process] -= rest;
-      cout << "" << name[head_process] << " rest:" << t[head_process] << " total_time:" << total_time << endl;
-      enqueue(head_process);
+      // プロセスが終了する時
+      elaps += p.t;
+      cout << p.name << " " << elaps << endl;
     }
   }
 }
