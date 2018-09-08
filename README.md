@@ -1,1 +1,1 @@
-AtCoderの問題を解いてはここにアップしていくリポジトリ
+Learning Algorithms and Data Structures
