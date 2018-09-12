@@ -11,13 +11,17 @@ void maxHeapify(int i) {
   r = 2 * i + 1;
   // left, self, rightの中で値が最大のノードをlargestに代入
   if (l <= H && A[l] > A[i]) {
+    // leftのほうが大きい場合
     largest = l;
   } else {
+    // 真ん中が大きい場合
     largest = i;
   }
   if (r <= H && A[r] > A[largest]) {
+    // rightのほうが大きい場合
     largest = r;
   }
+  // 真ん中以外がlargestのばあい、swap
   if (largest != i) {
     swap(A[largest], A[i]);
     maxHeapify(largest);
@@ -29,7 +33,7 @@ int main() {
   for (int i = 1; i <= H; i++) {
     cin >> A[i];
   }
-  for (int i = H; i >= 1; i--) {
+  for (int i = H/2; i >= 1; i--) {
     maxHeapify(i);
   }
   for (int i = 1; i <= H; i++) {
