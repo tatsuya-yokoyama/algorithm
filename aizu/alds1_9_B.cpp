@@ -33,7 +33,7 @@ int main() {
   for (int i = 1; i <= H; i++) {
     cin >> A[i];
   }
-  for (int i = H/2; i >= 1; i--) {
+  for (int i = H/2x; i >= 1; i--) {
     maxHeapify(i);
   }
   for (int i = 1; i <= H; i++) {
