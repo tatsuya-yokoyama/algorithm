@@ -1,24 +1,41 @@
 #include <iostream>
-#include <vector>
-#include <algorithm>
 
 using namespace std;
 
+int gcd(int a, int b) {
+  int less, greater;
+  if (a < b) {
+    less = a;
+    greater = b;
+  } else {
+    less = b;
+    greater = a;
+  }
+  int remainder = greater % less;
+  if (remainder == 0) {
+    return less;
+  } else {
+    return gcd(less, remainder);
+  }
+}
+
 int main() {
-  int N, X, min_ans;
-  vector<int> v;
+  int N, X;
   cin >> N >> X;
+  int D[100100];
+  cout << endl;
+  // cout << "-------" << endl;
   for (int i = 0; i < N; i++) {
-    int x;
-    cin >> x;
-    v.push_back(x);
+    int num;
+    cin >> num;
+    D[i] = abs(X-num);
+    // cout << D[i] << endl;
   }
-  sort(v.begin(), v.end());
-  if (v.size() >= 2) {
-    for (int i = 1; i < 10000000; i++) {
-      for (j = 1; j < v.size() - 1; j++) {
-        if ()
-      }
-    }
+  // cout << "-------" << endl;
+  int ans = D[0];
+  for (int i = 1; i < N; i++) {
+    // cout << "D[i] " << D[i] << " D[i+1] " << D[i+1] << endl;
+    ans = gcd(ans, D[i]);
   }
+  cout << ans << endl;
 }
