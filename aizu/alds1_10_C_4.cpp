@@ -7,16 +7,21 @@ int dp[1010][1010];
 int lcs(string X, string Y) {
   int m = X.size();
   int n = Y.size();
+  X = ' ' + X;
+  Y = ' ' + Y;
+  // 初期化
   for (int i = 0; i <= m; i++) {
     for (int j = 0; j <= n; j++) {
-      if (i == 0 || j == 0) {
-        dp[i][j] = 0;
+      dp[i][j] = 0;
+    }
+  }
+
+  for (int i = 1; i <= m; i++) {
+    for (int j = 1; j <= n; j++) {
+      if (X[i] == Y[j]) {
+        dp[i][j] = dp[i-1][j-1] + 1;
       } else {
-        if (X[i-1] == Y[j-1]) {
-          dp[i][j] = dp[i-1][j-1] + 1;
-        } else {
-          dp[i][j] = max(dp[i][j-1], dp[i-1][j]);
-        }
+        dp[i][j] = max(dp[i][j-1], dp[i-1][j]);
       }
     }
   }
