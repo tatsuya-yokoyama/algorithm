@@ -27,10 +27,10 @@ int main() {
   // cout << endl;
   for (int i = 0; i < n; i++) {
     for (int j = 0; j < n; j++) {
-      cout << a[i][j];
-      if (j < n-1) {
-         cout << " ";
+      if (j) {
+        cout << " ";
       }
+      cout << a[i][j];
     }
     cout << endl;
   }
