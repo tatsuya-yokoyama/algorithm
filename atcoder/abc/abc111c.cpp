@@ -45,42 +45,6 @@ void get_max_and_second_max(map<int, int> m, string type) {
     }
   }
 
-  //
-  // // 二番目に個数が大きい数を求める
-  // for(auto itr = m.begin(); itr != m.end(); ++itr) {
-  //   int value = itr->second;
-  // }
-  //
-  //
-  // for(auto itr = m.begin(); itr != m.end(); ++itr) {
-  //   std::cout << "key = " << itr->first << ", val = " << itr->second << "\n";
-  //   int value = itr->second;
-  //   if (value > max_num_value) {
-  //     cout << "do max:" << value << endl;
-  //     max_num_value = value;
-  //     second_max_num_value = max_num_value;
-  //   } else if (value > second_max_num_value) {
-  //     cout << "do 2nd max:" << value << endl;
-  //     second_max_num_value = value;
-  //   }
-  // }
-  // if (second_max_num_key == max_num_key) {
-  //   second_max_num_key = -1;
-  //   second_max_num_value = -1;
-  // }
-  // int max_num_key = -1;
-  // int second_max_num_key = -1;
-  // for(auto itr = m.begin(); itr != m.end(); ++itr) {
-  //   int value = itr->second;
-  //   // max
-  //   if (value == max_num_value) {
-  //     max_num_key = itr->first;
-  //   } else if (value == second_max_num_value) {
-  //     // second
-  //     second_max_num_key = itr->first;
-  //   }
-  // }
-
   if (type == "odd") {
     odd_max_num_key = max_num_key;
     odd_second_max_num_key = second_max_num_key;
