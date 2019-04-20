@@ -38,6 +38,28 @@ class Tree:
             else:
                 node = node.right
         return 'no'
+
+    def delete(self, node):
+        # nodeが子を持たない場合
+        if node.left is None and node.right is None:
+            if node.parent.left.key == node.left.key:
+                node.parent.left == None
+            else:
+                node.parent.right == None
+        elif node.left is not None and node.right is not None:
+            # nodeが子を2つ持つ場合
+            pass
+        else:
+            # nodeが子を1つ持つ場合
+            # 左側に子を持つ場合
+            if node.left is not None:
+                node.left.parent = node.parent
+                pass
+            # 右側に子を持つ場合
+            if node.right is not None:
+                pass
+
+        
         
 
     def print_in_order(self, node):
