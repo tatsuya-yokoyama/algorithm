@@ -10,6 +10,17 @@ class Tree:
     def __init__(self):
         self.root = None
 
+    def find(self, key):
+        node = self.root
+        while node is not None:
+            if key == node.key:
+                return node
+            elif key < node.key:
+                node = node.left
+            else:
+                node = node.right
+        return None
+
     def insert(self, node):
         y = None
         x = self.root
@@ -51,6 +62,12 @@ for i in range(m):
         print('')
         tree.print_pre_order(tree.root)
         print('')
+    elif line[0] == 'find':
+        key = line[1]
+        if tree.find(int(key)) is None:
+            print('no')
+        else:
+            print('yes')
     else:
         key = line[1]
         tree.insert(Node(int(key)))
