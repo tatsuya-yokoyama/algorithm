@@ -1,8 +1,10 @@
 def merge(A, left, mid, right):
     global count
-    inf = 10 ** 9
-    L = A[left:mid] + [inf]
-    R = A[mid:right] + [inf]
+    SENTINEL = 10 ** 9
+    L = A[left:mid] + [SENTINEL]
+    R = A[mid:right] + [SENTINEL]
+    print('L', L)
+    print('R', R)
 
     i = 0
     j = 0
@@ -14,8 +16,10 @@ def merge(A, left, mid, right):
         else:
             A[k] = R[j]
             j += 1
+    print('l', left, 'm', mid, 'r', right, A, count)
 
 def mergeSort(A, left, right):
+    print('mergeSort', left, right)
     if left + 1 < right:
         mid = (left + right) // 2
         mergeSort(A, left, mid)
